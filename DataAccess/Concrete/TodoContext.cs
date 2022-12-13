@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete
 {
-    public class ToDoContext : DbContext
+    public class TodoContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

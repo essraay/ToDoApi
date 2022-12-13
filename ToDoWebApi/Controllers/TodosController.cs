@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -33,6 +34,28 @@ namespace ToDoWebApi.Controllers
         public IActionResult GetById(int id)
         {
             var result = _todosService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("add")]
+        public IActionResult Add(Todos todos)
+        {
+            var result = _todosService.Add(todos);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("delete")]
+        public IActionResult Delete(Todos todos)
+        {
+            var result = _todosService.Delete(todos);
             if (result.Success)
             {
                 return Ok(result);

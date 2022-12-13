@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete
 {
-    public class UserDal : EfEntityRepositoryBase<User, ToDoContext>, IUserDal
+    public class UserDal : EfEntityRepositoryBase<User, TodoContext>, IUserDal
     {
         public User GetById(int id)
         {
-            using (ToDoContext context = new ToDoContext())
+            using (TodoContext context = new TodoContext())
             {
                 var query = context.User;
                 return query.SingleOrDefault();

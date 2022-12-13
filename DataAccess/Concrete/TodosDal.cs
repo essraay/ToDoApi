@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete
 {
-    public class TodosDal : EfEntityRepositoryBase<Todos, ToDoContext>, ITodosDal
+    public class TodosDal : EfEntityRepositoryBase<Todos, TodoContext>, ITodosDal
     {
         public Todos GetById(int id)
         {
-            using (ToDoContext context = new ToDoContext())
+            using (TodoContext context = new TodoContext())
             {
                 var query = context.Todos.Where(item => item.Id == id);
                 return query.SingleOrDefault();
